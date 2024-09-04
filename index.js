@@ -13,6 +13,7 @@ git init
 git add 
 .gitignore para lo que no quiero
 git commit -m "mensaje"
+git --checkout --.
 */
 
 // Las dependencias estas estan en package.json/node_module
