@@ -1,0 +1,13 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box; 
+}
+.titi{
+    color: red;
+}
+.menu{
+    width: 64px;
+    height: 100vh;
+    background-color: rgb(61, 61, 110);
+}

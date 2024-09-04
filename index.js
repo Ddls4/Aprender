@@ -10,7 +10,9 @@ git comandos
 git config --global user.name "nombre"
 git config --global user.email "correo"
 git init
-
+git add 
+.gitignore para lo que no quiero
+git commit -m "mensaje"
 */
 
 // Las dependencias estas estan en package.json/node_module
