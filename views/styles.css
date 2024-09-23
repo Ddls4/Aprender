@@ -3,11 +3,34 @@
     margin: 0%;
     box-sizing: border-box; 
 }
-.titi{
-    color: red;
-}
 .menu{
     width: 64px;
     height: 100vh;
     background-color: rgb(61, 61, 110);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 25px;
+}
+.boton{
+    width: 64px;
+    height: 64px;
+    background-color: rgb(223, 115, 115);
+    border-radius: 50%;
+}
+.pagina{
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 33vh 33vh 34vh;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: blueviolet;
 }
