@@ -1,32 +1,34 @@
-/*       npm init --yes 
-npm i express nodemon hbs | install = i 
-express - para server | nodemon - para guardar y cargar | hbs - para el "html" 
+import express from "express";
+import hbs from "hbs";
+import { fileURLToPath } from "url"; // Para obtener la ruta del archivo actual
+import { dirname } from "path"; // Para trabajar con rutas de archivo
+import { encriptar_contra } from "./funciones/funciones.js";
+import { guardar_db } from "./funciones/funciones.js";
+import {} from 'dotenv/config' // module
 
-nodemon index.js   
-node_modules no subir al proyecto
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const servidor = express();
 
-para copiar y vercionar las app
-git comandos
-git config --global user.name "nombre"
-git config --global user.email "correo"
-git init
-git add 
-.gitignore para lo que no quiero
-git commit -m "mensaje"
-git --checkout --.
-*/
 
-// Las dependencias estas estan en package.json/node_module
-import { server } from "./config.js"
+servidor.listen(90);
+servidor.use(express.json());
+servidor.use(express.static(`${__dirname}/publicos`));
+servidor.set("view engine", "hbs");
+hbs.registerPartials(`${__dirname}/views/partials`);
 
-// get post put delete | get puede traer la base de datos
-//.status(404)
-server.get("/", (req,res)=>{
-    res.render("index.hbs",{nombre:"Diego"})
-})
-server.get("/login", (req,res)=>{
-    res.render("login.hbs")
-})
-server.post("/login",(req,res)=>{
-    console.log(req.body)
-})
+servidor.get("/", (req, res) => {
+    res.status(200).render("index.hbs");
+});
+
+servidor.get("/login", (req, res) => {
+    res.render("login.hbs");
+});
+
+servidor.post("/login", async (req, res) => {
+    let { Usuario, Contraseña } = req.body;
+    Contraseña = encriptar_contra(Contraseña);
+    console.log(`Usuario: ${Usuario}, Contraseña: ${Contraseña}`);
+    guardar_db(Usuario, Contraseña);
+    res.status(200).send("Datos recibidos y guardados");
+});

@@ -1,18 +1,20 @@
 {
-  "name": "pregamacion",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "express": "^4.19.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
     "hbs": "^4.2.0",
-    "nodemon": "^3.1.4"
+    "mysql2": "^3.11.3"
   }
 }
